@@ -1,0 +1,12 @@
+{
+  "name": "neonviper",
+  "version": "1.0.0",
+  "description": "NEONVIPER — an over-amped neon Snake arcade with power-ups, AI rival snakes, multiple modes, and a local-LLM (Ollama) Game Master + natural-language Spell Console.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.cjs",
+    "test": "node test/smoke.mjs && node test/dom.mjs"
+  },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}

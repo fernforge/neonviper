@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>NEONVIPER — amped-up snake</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🐍</text></svg>" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="game"></canvas>
+
+    <!-- HUD -->
+    <div id="hud" class="hidden">
+      <div class="hud-left">
+        <div class="hud-score">SCORE <span id="score">0</span></div>
+        <div class="hud-sub">BEST <span id="best">0</span> · LEN <span id="length">3</span></div>
+      </div>
+      <div class="hud-center">
+        <div id="combo" class="combo hidden">x<span id="comboMult">1</span> COMBO</div>
+        <div id="comboBar"><div id="comboBarFill"></div></div>
+      </div>
+      <div class="hud-right">
+        <div id="modeName" class="hud-mode">CLASSIC</div>
+        <div class="hud-sub" id="aiBadge">AI: …</div>
+      </div>
+    </div>
+
+    <!-- active power-ups tray -->
+    <div id="powerTray" class="hidden"></div>
+
+    <!-- Game Master speech -->
+    <div id="gm" class="hidden"><span id="gmText"></span></div>
+
+    <!-- Spell console -->
+    <div id="spell" class="hidden">
+      <div class="spell-title">✦ SPELL CONSOLE ✦ <small>(speak your wish)</small></div>
+      <input id="spellInput" maxlength="120" autocomplete="off" placeholder="e.g. freeze time, make me a ghost, double my points…" />
+      <div id="spellHint">Press <b>Enter</b> to cast · <b>Esc</b> to close · costs 1 charge</div>
+      <div id="spellResult"></div>
+    </div>
+
+    <!-- Main menu -->
+    <div id="menu" class="overlay">
+      <h1 class="logo">NEON<span>VIPER</span></h1>
+      <p class="tag">the over-amped serpent arcade</p>
+      <div class="mode-grid" id="modeGrid"></div>
+      <div class="menu-row">
+        <button class="btn ghost" id="howBtn">HOW TO PLAY</button>
+        <button class="btn ghost" id="settingsBtn">SETTINGS</button>
+        <button class="btn ghost" id="scoresBtn">HIGH SCORES</button>
+      </div>
+      <p class="footer">↑↓←→ / WASD to steer · SPACE pause · <b>F</b> spell console · <b>ENTER</b> start</p>
+    </div>
+
+    <!-- Pause -->
+    <div id="pause" class="overlay hidden">
+      <h2>PAUSED</h2>
+      <div class="menu-row">
+        <button class="btn" id="resumeBtn">RESUME</button>
+        <button class="btn ghost" id="quitBtn">QUIT TO MENU</button>
+      </div>
+    </div>
+
+    <!-- Game over -->
+    <div id="over" class="overlay hidden">
+      <h2 id="overTitle">GAME OVER</h2>
+      <div class="over-stats">
+        <div><span id="overScore">0</span><small>SCORE</small></div>
+        <div><span id="overLen">0</span><small>LENGTH</small></div>
+        <div><span id="overBest">0</span><small>BEST</small></div>
+      </div>
+      <div id="overQuip" class="over-quip"></div>
+      <div class="menu-row">
+        <button class="btn" id="againBtn">PLAY AGAIN</button>
+        <button class="btn ghost" id="menuBtn">MENU</button>
+      </div>
+    </div>
+
+    <!-- Generic modal (settings / how / scores) -->
+    <div id="modal" class="overlay hidden">
+      <div class="modal-card">
+        <h2 id="modalTitle">TITLE</h2>
+        <div id="modalBody"></div>
+        <button class="btn" id="modalClose">CLOSE</button>
+      </div>
+    </div>
+
+    <!-- mobile touch dpad -->
+    <div id="dpad" class="hidden">
+      <button data-dir="up">▲</button>
+      <button data-dir="left">◀</button>
+      <button data-dir="right">▶</button>
+      <button data-dir="down">▼</button>
+    </div>
+
+    <div id="countdown" class="hidden"></div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
