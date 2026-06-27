@@ -1,9 +1,19 @@
-# NEONVIPER — Amped-up Snake  ✅ COMPLETE
+# NEONVIPER — Amped-up Snake  ✅ COMPLETE & PUBLISHED
 
 ## Goal
 Most over-the-top Snake game possible, with innovative features + local LLM
 (Ollama) integration. Browser HTML5 Canvas, tiny Node server proxies Ollama with
-graceful canned fallbacks. ZERO npm dependencies.
+graceful canned fallbacks. ZERO npm dependencies. **Published to GitHub + Pages.**
+
+## Published
+- Repo: https://github.com/fernforge/neonviper (owner `fernforge`)
+- Live: https://fernforge.github.io/neonviper/  (verified live w/ Playwright)
+- Deploy: `.github/workflows/pages.yml` uploads `public/` → Pages on push to main.
+  Pages build_type=workflow (set via API). Pushing to main re-deploys.
+- Static build is self-contained: `public/js/ai.js` falls back to client-side
+  canned quips + offline spell parser when no server (badge shows "AI: offline").
+- Auth: GH_TOKEN env. Token CANNOT workflow_dispatch (403) — re-trigger by pushing.
+  index.html uses RELATIVE asset paths (css/, js/) so the /neonviper/ subpath works.
 
 ## How to run
 - `npm start`  → `node server.cjs` → http://localhost:3000
